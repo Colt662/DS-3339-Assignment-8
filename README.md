@@ -1,4 +1,13 @@
 # Contact Hash Table
+
+## Origin
+
+This project was made for a Data Structures class and is intended to showcase the use of hash tables.
+
+A desgin memo/reflection is contained in [hash_table.py](hash_table.py).
+
+## Original Instructions
+
 This project implements a contact management system using a custom-built hash table in Python. Instead of using Python’s built-in dictionary, you’ll define a hash table from scratch that stores and retrieves `Contact` objects based on a user’s name.
 
 The system uses separate chaining to handle hash collisions, meaning each array index contains a linked list of contacts that share the same hash value. This assignment deepens your understanding of how hash tables work behind the scenes and how to resolve collisions—a key concept for systems that rely on fast lookups like databases, caches, and contact directories.
