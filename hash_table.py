@@ -143,3 +143,18 @@ table.print_table()
 print("Searching for non-existant value")
 print(table.search("Chris"))
 
+
+
+
+"""
+At the bottom of your file or in a separate .txt file, include a short reflection (200–300 words) that answers the following:
+
+    Why is a hash table the right structure for fast lookups?
+        A hash table is the right structure for fast lookups because it can jump straight to the index an item is stored at instead of traversing. As long as the hash function being used and the values being used as keys don't tend to create an excess of collisions, the vast majority of data in the list does not need to be dealt with in order to find the location of an entry, and instead can be accessed directly in O(1) time. 
+    How did you handle collisions?
+        Collisions are handled by having each index be a singly linked list so that inserted values that have a collision can be placed at the back of the list. This allows multiple values to be at the same index without spilling into other indexes, but can also slow down the time needed to access values at that index.
+    When might an engineer choose a hash table over a list or tree?
+        A hash table might be chosen over a list or tree when the data being stored: needs to be accessed quickly, does not need to be ordered, and has property well suited to being used as a key. Because hash tables are optimized for lookup speed above everything, they also take up more space compared to a list or tree, so they might be chosen typically only when storage is not being pressured.
+
+
+"""
