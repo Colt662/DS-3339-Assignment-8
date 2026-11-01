@@ -109,3 +109,37 @@ class HashTable:
 
         print("")
 
+
+# Test your hash table implementation here. 
+#Empty table
+print("Empty table:")  
+table = HashTable(10)
+table.print_table()
+
+#two values, no collisions
+print("No-collision insertion:")
+table.insert("John", "909-876-1234")
+table.insert("Rebecca", "111-555-0002")
+table.print_table()
+
+#searching
+print("Searching: ")
+contact = table.search("John") 
+print(f'Search result: {contact}') 
+print("")
+
+#collision
+print("Inserting with collision:")
+table.insert("Amy", "111-222-3333") 
+table.insert("May", "222-333-1111")  
+table.print_table()
+
+#duplicate
+print("Updating existing contact:")
+table.insert("Rebecca", "999-444-9999")
+table.print_table()
+
+#Non-existant
+print("Searching for non-existant value")
+print(table.search("Chris"))
+
