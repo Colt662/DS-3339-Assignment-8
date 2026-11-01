@@ -40,6 +40,72 @@ class HashTable:
         print_table(): Prints the structure of the hash table.
     '''
     
-    pass # Delete this line when implementing the class
+    def __init__(self, size):
+        self.size = size
+        self.data = [None] * size
 
-# Test your hash table implementation here.  
+
+    def hash_function(self, key):
+        total = 0
+        for char in key:
+            total += ord(char)
+        return total % self.size
+
+
+    def insert(self, key, value):
+        contact = Contact(key, value)
+        index = self.hash_function(key)
+        current_node = self.data[index]
+
+        if current_node == None: #empty index
+            self.data[index] = Node(key, contact)
+            return
+
+        else: #occupied index
+            while current_node != None:
+                if current_node.key == key: #update existing key
+                    current_node.value = contact
+                    return
+                
+                else:
+                    if current_node.next == None: #end of list
+                        current_node.next = Node(key, contact)
+                        return
+
+                    else: #keep going down list
+                        current_node = current_node.next
+
+
+    def search(self, key):
+        index = self.hash_function(key)
+        current_node = self.data[index]
+
+        while current_node != None:
+            if current_node.key == key:
+                return current_node.value 
+
+            else:
+                current_node = current_node.next
+
+        return None
+
+
+    def print_table(self):
+        index = 0
+        for entry in self.data:
+            if entry == None:
+                print(f'Index {index}: Empty')
+
+            else:
+                print(f'Index {index}:', end = "")
+                current_node = entry
+                while current_node != None:
+                    print(f' - {current_node.value}', end = "")
+                    current_node = current_node.next
+
+                print("")
+
+            index += 1
+
+        print("")
+
