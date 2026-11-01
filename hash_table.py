@@ -6,7 +6,12 @@ class Contact:
         number (str): The phone number of the contact.
     '''
     
-    pass # Delete this line when implementing the class
+    def __init__(self, name, number):
+        self.name = name
+        self.number = number
+
+    def __str__(self):
+        return f'{self.name}: {self.number}'
 
 class Node:
     '''
@@ -17,7 +22,10 @@ class Node:
         next (Node): Pointer to the next node in case of a collision.
     '''
    
-    pass # Delete this line when implementing the class
+    def __init__(self, key, value):
+        self.key = key
+        self.value = value
+        self.next = None
 
 class HashTable:
     '''
